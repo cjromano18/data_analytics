@@ -1,0 +1,44 @@
+{
+    "teclado": {
+        "codigo": "teclado",
+        "nombre": "Gamer",
+        "precio": 450.0,
+        "cantidad": 15,
+        "garantia": 1
+    },
+    "Arroz": {
+        "codigo": "Arroz",
+        "nombre": "Arroz",
+        "precio": 15.0,
+        "cantidad": 3,
+        "fecha_expiracion": "2025-01-18"
+    },
+    "Notebook": {
+        "codigo": "Notebook",
+        "nombre": "Notebook",
+        "precio": 1050.0,
+        "cantidad": 8,
+        "garantia": 2
+    },
+    "Fideo": {
+        "codigo": "Fideo",
+        "nombre": "Fideo",
+        "precio": 3.0,
+        "cantidad": 5,
+        "fecha_expiracion": "2025-02-04"
+    },
+    "Mouse": {
+        "codigo": "Mouse",
+        "nombre": "Mouse",
+        "precio": 25.0,
+        "cantidad": 10,
+        "garantia": 1
+    },
+    "Yerba": {
+        "codigo": "Yerba",
+        "nombre": "Yerba",
+        "precio": 15.0,
+        "cantidad": 22,
+        "fecha_expiracion": "2026-04-21"
+    }
+}
