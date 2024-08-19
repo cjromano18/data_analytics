@@ -33,12 +33,6 @@
         "precio": 25.0,
         "cantidad": 10,
         "garantia": 1
-    },
-    "Yerba": {
-        "codigo": "Yerba",
-        "nombre": "Yerba",
-        "precio": 15.0,
-        "cantidad": 22,
-        "fecha_expiracion": "2026-04-21"
     }
+    
 }
