@@ -16,6 +16,11 @@ Requisitos:
 
 import json
 
+import logging
+
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
 class Producto:
     def __init__(self, codigo, nombre, precio, cantidad):
         self.__codigo = self.validar_codigo(codigo)
@@ -89,6 +94,10 @@ class ProductoElectronico(Producto):
     @property
     def garantia(self):
         return self.__garantia
+    
+    @garantia.setter
+    def garantia(self, nueva_garantia):
+        self.__garantia = nueva_garantia
 
     def to_dict(self):
         data = super().to_dict()
@@ -103,6 +112,10 @@ class ProductoAlimenticio(Producto):
         super().__init__(codigo, nombre, precio, cantidad)
         self.__fecha_expiracion = fecha_expiracion
 
+    @property
+    def fecha_expiracion(self):
+        return self.__fecha_expiracion
+    
     @property
     def fecha_expiracion(self):
         return self.__fecha_expiracion
@@ -124,7 +137,11 @@ class GestionProductos:
             with open(self.archivo, 'r') as file:
                 datos = json.load(file)
         except FileNotFoundError:
+            logging.error(f"El archivo {self.archivo} no fue encontrado")
             return {}
+        except json.JSONDecodeError:
+            logging.error(f"El archivo {self.archivo} no contiene un JSON válido")
+            raise ValueError(f"El archivo {self.archivo} no contiene un JSON válido")
         except Exception as e:
             raise Exception(f'Error al leer datos del archivo: {e}')
         else:
@@ -135,9 +152,15 @@ class GestionProductos:
             with open(self.archivo, 'w') as file:
                 json.dump(datos, file, indent=4)
         except IOError as e:
-            print(f'Error al intentar guardar los datos en {self.archivo}: {e}')
+            logging.error(f"Error al intentar guardar los datos en {self.archivo}: {e}")
+            raise IOError(f"No se pudo guardar los datos en {self.archivo}, verifique el archivo")
+            #print(f'Error al intentar guardar los datos en {self.archivo}: {e}')
+        except TypeError as e:
+            logging.error(f"Datos inválidos para serializar en JSON: {e}")
         except Exception as e:
-            print(f'Error inesperado: {e}')
+            logging.error(f"Error inesperado al guardar los datos en {self.archivo}: {e}")
+            raise RuntimeError(f"Error inesperado: {e}")
+            #print(f'Error inesperado: {e}')
 
     def crear_producto(self, producto):
         try:
@@ -180,6 +203,10 @@ class GestionProductos:
                 print(f'Producto con código {codigo} actualizado.')
             else:
                 print(f'No se encontró producto con código {codigo}')
+        
+        except FileNotFoundError:
+            print(f"No se encontro el archivo {self.archivo}")
+  
         except Exception as e:
             print(f'Error al actualizar el producto: {e}')
 
@@ -192,5 +219,11 @@ class GestionProductos:
                 print(f'Producto con código {codigo} eliminado correctamente.')
             else:
                 print(f'No se encontró producto con código {codigo}')
+        except FileNotFoundError:
+            print(f"EL archivo {self.archivo} no se encontro!")
+        
+        except KeyError as e_key:
+            print(f"Se produjo un error en la clave del diccionario: {e_key} ")
+
         except Exception as e:
             print(f'Error al eliminar el producto: {e}')

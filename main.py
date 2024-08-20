@@ -66,9 +66,9 @@ def mostrar_todos_los_productos(gestion):
     print('=============== Listado completo de los Productos ==============')
     for producto in gestion.leer_datos().values():
         if 'garantia' in producto:
-            print(f"Producto: {producto['nombre']} - con Garantía de: {producto['garantia']} años")
+            print(f"Producto Electrónico: {producto['nombre']} - con Garantía de: {producto['garantia']} años")
         elif 'fecha_expiracion' in producto:
-            print(f"{producto['nombre']} - Fecha de Expiración: {producto['fecha_expiracion']}")
+            print(f"Producto Alimenticio: {producto['nombre']} - Fecha de Expiración: {producto['fecha_expiracion']}")
         else:
             print(f"{producto['nombre']} - Precio: {producto['precio']} - Cantidad: {producto['cantidad']}")
     print('=================================================================')

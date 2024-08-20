@@ -1,38 +1,30 @@
 {
-    "teclado": {
-        "codigo": "teclado",
-        "nombre": "Gamer",
-        "precio": 450.0,
-        "cantidad": 15,
+    "tec45": {
+        "codigo": "tec45",
+        "nombre": "Teclado",
+        "precio": 25.0,
+        "cantidad": 56,
         "garantia": 1
     },
-    "Arroz": {
-        "codigo": "Arroz",
+    "alim58": {
+        "codigo": "alim58",
         "nombre": "Arroz",
-        "precio": 15.0,
-        "cantidad": 3,
-        "fecha_expiracion": "2025-01-18"
+        "precio": 25.0,
+        "cantidad": 99,
+        "fecha_expiracion": "2025-08-12"
     },
-    "Notebook": {
-        "codigo": "Notebook",
+    "tec458": {
+        "codigo": "tec458",
         "nombre": "Notebook",
-        "precio": 1050.0,
-        "cantidad": 8,
+        "precio": 250.0,
+        "cantidad": 75,
         "garantia": 2
     },
-    "Fideo": {
-        "codigo": "Fideo",
+    "alim78": {
+        "codigo": "alim78",
         "nombre": "Fideo",
-        "precio": 3.0,
-        "cantidad": 5,
-        "fecha_expiracion": "2025-02-04"
-    },
-    "Mouse": {
-        "codigo": "Mouse",
-        "nombre": "Mouse",
-        "precio": 25.0,
-        "cantidad": 10,
-        "garantia": 1
+        "precio": 5.0,
+        "cantidad": 850,
+        "fecha_expiracion": "2026-04-30"
     }
-    
 }
